@@ -1,0 +1,29 @@
+exp_name: '10_recur'
+
+dataroot: '/data/wangyh/data4/Datasets/shadow/SRD_Dataset/train'
+check_dir: './checkpoints'
+image_dir: './checkpoints/image'
+save_dir: './checkpoints/save'
+loadSize: 256
+fineSize: 256
+keep_ratio: True
+no_flip: False
+no_crop: False
+sf_fixed: 'train_C'  # fixed or not 'train_C_fixed' or 'train_C'
+
+
+batch_size: 4
+epoch_count: 1
+niter: 250
+niter_decay: 250
+
+lr: 0.0002
+beta1: 0.5
+gamma: 0.8
+dropout: False
+in_channel_m: 4
+in_channel: 3
+iters: 1
+
+test_image: '/data4/wangyh/Datasets/shadow/ISTD_Dataset/test/test_A'
+test_mask: '/data4/wangyh/Datasets/shadow/ISTD_Dataset/test/test_B'

@@ -1,0 +1,89 @@
+2023-12-02 14:29:06,579 - 10_recur - INFO - {'exp_name': '10_recur', 'dataroot': '/data/wangyh/data4/Datasets/shadow/SRD_Dataset/train', 'check_dir': './checkpoints', 'image_dir': './checkpoints/image', 'save_dir': './checkpoints/save', 'loadSize': 256, 'fineSize': 256, 'keep_ratio': True, 'no_flip': False, 'no_crop': False, 'sf_fixed': 'train_C', 'batch_size': 4, 'epoch_count': 1, 'niter': 250, 'niter_decay': 250, 'lr': 0.0002, 'beta1': 0.5, 'gamma': 0.8, 'dropout': False, 'in_channel_m': 4, 'in_channel': 3, 'iters': 1, 'test_image': '/data4/wangyh/Datasets/shadow/ISTD_Dataset/test/test_A', 'test_mask': '/data4/wangyh/Datasets/shadow/ISTD_Dataset/test/test_B'}
+2023-12-02 14:29:10,187 - 10_recur - INFO - DataParallel(
+  (module): PRNet(
+    (fnet): BasicEncoder(
+      (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+      (conv1): Conv2d(4, 64, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3))
+      (relu1): ReLU(inplace=True)
+      (layer1): Sequential(
+        (0): ResidualBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+        (1): ResidualBlock(
+          (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(64, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (layer2): Sequential(
+        (0): ResidualBlock(
+          (conv1): Conv2d(64, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm3): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (downsample): Sequential(
+            (0): Conv2d(64, 96, kernel_size=(1, 1), stride=(1, 1))
+            (1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          )
+        )
+        (1): ResidualBlock(
+          (conv1): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(96, 96, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(96, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (layer3): Sequential(
+        (0): ResidualBlock(
+          (conv1): Conv2d(96, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm3): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (downsample): Sequential(
+            (0): Conv2d(96, 128, kernel_size=(1, 1), stride=(1, 1))
+            (1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          )
+        )
+        (1): ResidualBlock(
+          (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (relu): ReLU(inplace=True)
+          (norm1): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+          (norm2): InstanceNorm2d(128, eps=1e-05, momentum=0.1, affine=False, track_running_stats=False)
+        )
+      )
+      (conv2): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1))
+    )
+    (update_block): BasicUpdateBlock(
+      (integration): ReIntegration(
+        (convc1): Conv2d(128, 256, kernel_size=(1, 1), stride=(1, 1))
+        (convc2): Conv2d(256, 192, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (convf1): Conv2d(4, 128, kernel_size=(7, 7), stride=(1, 1), padding=(3, 3))
+        (convf2): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv): Conv2d(256, 124, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+      (gru): GRUBasedModule(
+        (convz1): Conv2d(256, 128, kernel_size=(1, 5), stride=(1, 1), padding=(0, 2))
+        (convr1): Conv2d(256, 128, kernel_size=(1, 5), stride=(1, 1), padding=(0, 2))
+        (convq1): Conv2d(256, 128, kernel_size=(1, 5), stride=(1, 1), padding=(0, 2))
+      )
+      (head): PredHead(
+        (conv1): Conv2d(129, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (conv2): Conv2d(256, 3, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+)
+2023-12-02 14:29:10,193 - 10_recur - INFO - model parameters: 2.710175
+2023-12-02 14:29:40,568 - 10_recur - INFO - epoch: 1 step: 0 loss: 0.34
