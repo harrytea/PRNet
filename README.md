@@ -34,6 +34,8 @@ python train.py
 
 modify your test data path in `cfg/1.yaml` and run `python test.py`. The results will be saved in `results` folder.
 
+We provided the qualitative results of [istd](https://pan.baidu.com/s/1OrSG0UcDSK1GxVH8lepbjQ), [aistd](https://pan.baidu.com/s/1dK90noYDdIxp8j05ih5_Vg), and [srd](https://pan.baidu.com/s/1y9f4qi5jS2dbpY8eLHJImQ) here, (code:gxqt).
+
 ### Evaluation
 Following the previous paper, the results reported in this paper are calculated by the matlab script used in [previous method](https://github.com/zhuyr97/AAAI2022_Unfolding_Network_Shadow_Removal/tree/master/codes). You can refer to `evaluation` folder for more details.
 
